@@ -16,7 +16,7 @@ public class ATAMetricItem extends MetricItem{
     }
 
     @Override
-    public long calculateScore() {
+    public double calculateScore() {
 
         if (numberOfThumbUps == 0) return 0;
 

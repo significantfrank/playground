@@ -10,15 +10,20 @@ import java.util.List;
  * @date 2018-07-04 1:24 PM
  */
 public class InfuenceMetric extends Metric{
-    private List<Metric> metrics = new ArrayList<>();
+    private List<Metric> metrics;
+
 
     public void addMetric(Metric metric){
         metrics.add(metric);
     }
 
+    public InfuenceMetric() {
+        this.metrics = new ArrayList<>();
+    }
+
     @Override
-    public long calculateScore() {
-        long score = 0;
+    public double calculateScore() {
+        double score = 0;
         for (Metric metric : metrics) {
             score = score + metric.calculateScore();
         }

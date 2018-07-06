@@ -21,7 +21,7 @@ public class SharingMetricItem extends MetricItem{
     }
 
     @Override
-    public long calculateScore() {
+    public double calculateScore() {
         switch (sharingScope){
             case TEAM: return 1;
             case DEPARTMENT: return 3;

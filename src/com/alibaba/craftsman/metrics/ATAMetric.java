@@ -14,7 +14,7 @@ public class ATAMetric extends Metric{
     }
 
     @Override
-    public long calculateScore() {
+    public double calculateScore() {
         return ataMetricItem.calculateScore();
     }
 }

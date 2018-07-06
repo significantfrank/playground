@@ -17,8 +17,8 @@ public class SharingMetric extends Metric{
     }
 
     @Override
-    public long calculateScore() {
-        long score = 0;
+    public double calculateScore() {
+        double score = 0;
         for (MetricItem metricItem: metricItemList) {
             score = score + metricItem.calculateScore();
         }
