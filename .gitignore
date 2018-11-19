@@ -25,4 +25,5 @@ bin/
 doc/
 test-output/
 out/
+lib/
 .DS_Store
