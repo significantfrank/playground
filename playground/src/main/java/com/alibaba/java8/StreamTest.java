@@ -32,9 +32,21 @@ public class StreamTest {
                 new Transaction(lucy, 2011, 1200)
         );
 
+        transactionList.stream()
+                .filter(t -> {
+                    System.out.println("filtering " + t.getTrader().getName());
+                    return t.getYear() == 2012;
+                })
+                .map(t -> {
+                    System.out.println("mapping " + t.getTrader().getName());
+                    return t.getTrader();
+                })
+                .limit(2)
+                .collect(Collectors.toList());
+
         //1、Find out the sum of 2011's transaction, sort by transaction amount
-        List<Transaction> first = transactionList.stream().filter(t -> t.getYear() == 2011).sorted(comparing(Transaction::getValue)).collect(Collectors.toList());
-        System.out.println(first);
+//        List<Transaction> first = transactionList.stream().filter(t -> t.getYear() == 2011).sorted(comparing(Transaction::getValue)).collect(Collectors.toList());
+//        System.out.println(first);
 
 /*        //2、交易员都在哪些不同的城市工作过?
         List<String> second = transactionList.stream().map(Transaction::getTrader).map(Trader::getCity).distinct().collect(Collectors.toList());

@@ -1,4 +1,4 @@
-package com.alibaba.craftsman.book.chapter7.decorator;
+package com.alibaba.craftsman.book.chapter6.decorator;
 
 import java.sql.*;
 import java.util.Map;
@@ -6,26 +6,71 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 /**
- * ConnectionImpl
+ * ConnectionDecorator
+ *
+ * Decorator 装饰者模式
  *
  * @author Frank Zhang
- * @date 2019-02-01 5:56 PM
+ * @date 2019-02-01 5:41 PM
  */
-public class ConnectionImpl implements Connection{
+public class ConnectionDecorator implements Connection{
+
+    private Connection connection;
+
+    public ConnectionDecorator(Connection connection){
+        this.connection = connection;
+    }
+
+    private void trace(String msg){
+        System.out.println("trace: "+msg);
+    }
 
     @Override
     public Statement createStatement() throws SQLException {
-        return null;
+        trace("createStatement");
+        return connection.createStatement();
     }
 
     @Override
     public PreparedStatement prepareStatement(String sql) throws SQLException {
-        return null;
+        trace("prepareStatement: "+sql);
+        return connection.prepareStatement(sql);
     }
 
     @Override
     public CallableStatement prepareCall(String sql) throws SQLException {
-        return null;
+        trace("prepareCall: "+sql);
+        return connection.prepareCall(sql);
+    }
+
+    @Override
+    public void setAutoCommit(boolean autoCommit) throws SQLException {
+        trace("setAutoCommit: "+autoCommit);
+        connection.setAutoCommit(autoCommit);
+    }
+
+    @Override
+    public void commit() throws SQLException {
+        trace("commit");
+        connection.commit();
+    }
+
+    @Override
+    public void rollback() throws SQLException {
+        trace("rollback");
+        connection.rollback();
+    }
+
+    @Override
+    public void close() throws SQLException {
+        trace("close");
+        connection.close();
+    }
+
+    @Override
+    public boolean isClosed() throws SQLException {
+        trace("check close");
+        return connection.isClosed();
     }
 
     @Override
@@ -34,32 +79,7 @@ public class ConnectionImpl implements Connection{
     }
 
     @Override
-    public void setAutoCommit(boolean autoCommit) throws SQLException {
-
-    }
-
-    @Override
     public boolean getAutoCommit() throws SQLException {
-        return false;
-    }
-
-    @Override
-    public void commit() throws SQLException {
-
-    }
-
-    @Override
-    public void rollback() throws SQLException {
-
-    }
-
-    @Override
-    public void close() throws SQLException {
-        System.out.println("do real close");
-    }
-
-    @Override
-    public boolean isClosed() throws SQLException {
         return false;
     }
 

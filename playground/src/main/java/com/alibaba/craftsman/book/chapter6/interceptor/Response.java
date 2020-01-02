@@ -1,4 +1,4 @@
-package com.alibaba.craftsman.book.chapter7.interceptor;
+package com.alibaba.craftsman.book.chapter6.interceptor;
 
 /**
  * Response

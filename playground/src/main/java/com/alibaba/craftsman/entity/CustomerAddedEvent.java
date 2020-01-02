@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.entity;
 
-import com.alibaba.cola.dto.event.Event;
+import com.alibaba.cola.event.DomainEventI;
 
 /**
  * CustomerAddedEvent
@@ -8,7 +8,7 @@ import com.alibaba.cola.dto.event.Event;
  * @author Frank Zhang
  * @date 2019-01-13 4:20 PM
  */
-public class CustomerAddedEvent extends Event{
+public class CustomerAddedEvent implements DomainEventI {
     Customer customer;
 
     public CustomerAddedEvent(Customer customer) {

@@ -1,10 +1,5 @@
 package com.alibaba.open;
 
-import com.taobao.api.DefaultTaobaoClient;
-import com.taobao.api.TaobaoClient;
-import com.taobao.api.request.TimeGetRequest;
-import com.taobao.api.response.TimeGetResponse;
-
 /**
  * NoAuthTest
  *
@@ -19,9 +14,9 @@ public class NoAuthTest {
         String url = "https://api.taobao.com/router/rest";//海外环境
         String sandboxUrl = "https://gw.api.tbsandbox.com/router/rest";//沙箱环境
         String productUrl = "https://eco.taobao.com/router/rest";//正式环境
-        TaobaoClient client = new DefaultTaobaoClient(productUrl, appkey, secret);
-        TimeGetRequest req = new TimeGetRequest();
-        TimeGetResponse rsp = client.execute(req);
-        System.out.println(rsp.getBody());
+//        TaobaoClient client = new DefaultTaobaoClient(productUrl, appkey, secret);
+//        TimeGetRequest req = new TimeGetRequest();
+//        TimeGetResponse rsp = client.execute(req);
+//        System.out.println(rsp.getBody());
     }
 }

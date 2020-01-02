@@ -1,4 +1,4 @@
-package com.alibaba.craftsman.book.chapter7.decorator;
+package com.alibaba.craftsman.book.chapter6.decorator;
 
 
 import java.sql.Connection;

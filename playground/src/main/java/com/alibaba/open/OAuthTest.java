@@ -1,19 +1,11 @@
 package com.alibaba.open;
 
-import com.taobao.api.DefaultTaobaoClient;
-import com.taobao.api.TaobaoClient;
-import com.taobao.api.internal.util.WebUtils;
-import com.taobao.api.request.AlibabaProcurementMysupplierListRequest;
-import com.taobao.api.request.TimeGetRequest;
-import com.taobao.api.response.AlibabaProcurementMysupplierListResponse;
-import com.taobao.api.response.TimeGetResponse;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * OAuthTest
+ * OAuthTest测试
  *
  * @author Frank Zhang
  * @date 2018-11-19 10:43 AM
@@ -31,12 +23,6 @@ public class OAuthTest {
         props.put("redirect_uri", "http://www.test.com");
         props.put("view", "web");
         String s = "";
-        try {
-            s = WebUtils.doPost(url, props, 30000, 30000);
-            System.out.println(s);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void main(String[] args) throws Exception{
@@ -69,12 +55,12 @@ public class OAuthTest {
         /**
          * 5、使用这个token，就可以用SDK来调用client允许调用的API了，SDK封装了签名加密，响应解释，性能优化等
          */
-        TaobaoClient client = new DefaultTaobaoClient(url, appkey, secret);
-        AlibabaProcurementMysupplierListRequest req = new AlibabaProcurementMysupplierListRequest();
-        req.setCurrentPage(20L);
-        req.setPageSize(10L);
-        req.setType("order");
-        AlibabaProcurementMysupplierListResponse rsp = client.execute(req, sessionKey);
-        System.out.println(rsp.getBody());
+//        TaobaoClient client = new DefaultTaobaoClient(url, appkey, secret);
+//        AlibabaProcurementMysupplierListRequest req = new AlibabaProcurementMysupplierListRequest();
+//        req.setCurrentPage(20L);
+//        req.setPageSize(10L);
+//        req.setType("order");
+//        AlibabaProcurementMysupplierListResponse rsp = client.execute(req, sessionKey);
+//        System.out.println(rsp.getBody());
     }
 }
