@@ -4,12 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.alibaba.platform</groupId>
-        <artifactId>business-app-dev-boot</artifactId>
-        <version>1.0.5.2</version>
-    </parent>
-
     <groupId>com.alibaba.icbu</groupId>
     <artifactId>playground</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -21,13 +15,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <cola.framework.version>1.0.0-SNAPSHOT</cola.framework.version>
+        <spring-statemachine.version>2.1.3.RELEASE</spring-statemachine.version>
+        <mybatis-starter.version>1.3.1</mybatis-starter.version>
+        <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.alibaba.business</groupId>
-            <artifactId>china-normal-product-publish-sdk</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.dingtalk.chatbot</groupId>
@@ -98,8 +91,79 @@
         <dependency>
             <groupId>org.springframework.statemachine</groupId>
             <artifactId>spring-statemachine-core</artifactId>
-            <version>2.1.3.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-data-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-recipes-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.shell</groupId>
+            <artifactId>spring-shell</artifactId>
+            <version>1.2.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.1</version>
+        </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.statemachine</groupId>
+                <artifactId>spring-statemachine-bom</artifactId>
+                <version>${spring-statemachine.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--Spring Boot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-starter.version}</version>
+            </dependency>
+            <!--Spring Boot End-->
+        </dependencies>
+
+    </dependencyManagement>
+
 </project>

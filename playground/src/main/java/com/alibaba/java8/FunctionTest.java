@@ -1,7 +1,5 @@
 package com.alibaba.java8;
 
-import com.alibaba.tmf.rule.func.annotation.Func;
-
 import java.util.function.Function;
 
 /**

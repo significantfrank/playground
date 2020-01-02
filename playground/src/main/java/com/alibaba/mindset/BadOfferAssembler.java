@@ -1,10 +1,5 @@
 package com.alibaba.mindset;
 
-import com.alibaba.common.lang.StringUtil;
-import com.google.common.collect.Lists;
-import org.apache.commons.collections4.CollectionUtils;
-
-import java.util.List;
 
 /**
  * BadOfferAssembler
