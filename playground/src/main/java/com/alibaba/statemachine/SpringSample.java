@@ -4,6 +4,7 @@ import org.springframework.statemachine.StateContext;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.action.Action;
 import org.springframework.statemachine.config.StateMachineBuilder;
+import org.springframework.statemachine.guard.Guard;
 
 import java.util.EnumSet;
 
@@ -27,13 +28,17 @@ public class SpringSample {
 
         builder.configureStates()
                 .withStates()
-                .initial(States.STATE1)
+                .initial(States.STATE2)
                 .states(EnumSet.allOf(States.class));
+
+        Object bizContext = new Object();
 
         builder.configureTransitions()
                 .withExternal()
-                    .source(States.STATE1).target(States.STATE2)
-                    .action((context)-> System.out.println("Enter into Sate2"))
+                    .source(States.STATE1)
+                    .target(States.STATE2)
+                    .guard(guard(bizContext))
+                    .action((ctx)-> System.out.println("Enter into Sate2: " + ctx.getEvent()))
                     .event(Events.EVENT1)
                     .and()
                 .withExternal()
@@ -42,6 +47,13 @@ public class SpringSample {
                     .event(Events.EVENT2);
 
         return builder.build();
+    }
+
+    public static Guard<States, Events> guard(Object bizContext){
+        return context -> {
+                System.out.println("Enter into guard: " + context.getEvent()+" "+bizContext);
+                return true;
+        };
     }
 
     public static Action<States, Events> transitAction(){
@@ -58,8 +70,8 @@ public class SpringSample {
         StateMachine<States, Events> stateMachine = buildMachine();
         stateMachine.start();
         stateMachine.sendEvent(Events.EVENT1);
-        System.out.println("Current state: " + stateMachine.getState());
+        System.out.println("Current state after Event1: " + stateMachine.getState());
         stateMachine.sendEvent(Events.EVENT2);
-        System.out.println("Current state: " + stateMachine.getState());
+        System.out.println("Current state after Event2: " + stateMachine.getState());
     }
 }

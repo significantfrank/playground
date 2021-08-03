@@ -23,6 +23,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.springframework.statemachine</groupId>
+            <artifactId>spring-statemachine-core</artifactId>
+            <version>1.2.3.RELEASE</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.dingtalk.chatbot</groupId>
             <artifactId>dingtalk-chatbot</artifactId>
             <version>0.9.0</version>

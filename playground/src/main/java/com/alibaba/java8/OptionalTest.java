@@ -14,6 +14,13 @@ import static junit.framework.Assert.assertEquals;
 public class OptionalTest {
 
     @Test
+    public void optionalMap(){
+        User user = new User();
+        boolean result = Optional.of(user).map((p) -> {return p.getAddress() != null;}).orElse(false);
+        System.out.println(result);
+    }
+
+    @Test
     public void whenCreateOfNullableOptional_thenOk() {
         String name = "John";
         Optional<String> opt = Optional.ofNullable(name);
