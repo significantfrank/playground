@@ -1,7 +1,6 @@
 package com.alibaba.java8;
 
 import com.google.common.collect.Lists;
-import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.Data;
 
 import java.util.Arrays;

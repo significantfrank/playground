@@ -28,11 +28,6 @@
             <version>1.2.3.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.dingtalk.chatbot</groupId>
-            <artifactId>dingtalk-chatbot</artifactId>
-            <version>0.9.0</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -74,12 +69,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.12.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cola</groupId>
-            <artifactId>cola-core</artifactId>
-            <version>${cola.framework.version}</version>
         </dependency>
 
         <dependency>
